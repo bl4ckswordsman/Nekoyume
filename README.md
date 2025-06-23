@@ -2,7 +2,8 @@
 
 A modern Android white noise app for relaxation and focus.
 
-[![CI](https://github.com/bl4ckswordsman/nekoyume/actions/workflows/ci.yml/badge.svg)](https://github.com/bl4ckswordsman/nekoyume/actions/workflows/ci.yml)
+[![Tests](https://github.com/bl4ckswordsman/nekoyume/actions/workflows/ci.yml/badge.svg)](https://github.com/bl4ckswordsman/nekoyume/actions/workflows/ci.yml)
+[![CodeQL](https://github.com/bl4ckswordsman/Nekoyume/actions/workflows/codeql.yml/badge.svg)](https://github.com/bl4ckswordsman/Nekoyume/actions/workflows/codeql.yml)
 
 ## What is this?
 

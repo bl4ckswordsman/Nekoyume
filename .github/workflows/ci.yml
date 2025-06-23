@@ -36,8 +36,8 @@ jobs:
           key: gradle-${{ runner.os }}-${{ hashFiles('**/*.gradle*', '**/gradle-wrapper.properties') }}
           restore-keys: gradle-${{ runner.os }}-
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      #- name: Make gradlew executable
+      #  run: chmod +x ./gradlew
 
       - name: Run unit tests
         run: ./gradlew testDebugUnitTest --stacktrace
@@ -105,8 +105,8 @@ jobs:
             ~/.android/adb*
           key: avd-pixel-9-api-35
 
-      - name: Make gradlew executable
-        run: chmod +x ./gradlew
+      #- name: Make gradlew executable
+      #  run: chmod +x ./gradlew
 
       - name: Create AVD and generate snapshot for caching
         if: steps.avd-cache.outputs.cache-hit != 'true'

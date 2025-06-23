@@ -17,7 +17,7 @@ on:
   pull_request:
     branches: ["master"]
   schedule:
-    - cron: '37 16 * * 3'
+    - cron: "37 16 * * 3"
 
 jobs:
   analyze:
@@ -78,7 +78,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
-          java-version: "11"
+          java-version: "17"
           distribution: "temurin"
       - run: ./gradlew assembleDebug
       # - run: |

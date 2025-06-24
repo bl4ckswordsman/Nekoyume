@@ -21,3 +21,4 @@ Nekoyume is a clean, simple white noise app built with modern Android technologi
 1. Clone this repo
 2. Open in Android Studio
 3. Build and run
+c

@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.0.1 (2025-06-24) (testing)
+
+
+### Features
+
+* **ci:** testing ([6c19efe](https://github.com/bl4ckswordsman/Nekoyume/commit/6c19efe241034e897f6d3cb090d009299b33365b))
+
+
+### Bug Fixes
+
+* **ci:** Use PAT token for release workflow ([8ed14be](https://github.com/bl4ckswordsman/Nekoyume/commit/8ed14be7e4880db2cc4d3aa900091027e5c85c6f))
+
 ## 0.0.1 (2025-06-24)
 
 

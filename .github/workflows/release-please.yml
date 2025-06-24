@@ -70,3 +70,17 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.NEKOYUME_PAT_TOKEN }}
         run: |
           gh release upload ${{ needs.release-please.outputs.tag_name }} nekoyume-${{ needs.release-please.outputs.version }}.apk
+
+  virustotal:
+    needs: build-and-release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: VirusTotal Scan
+        uses: crazy-max/ghaction-virustotal@v4
+        with:
+          vt_api_key: ${{ secrets.VT_API_KEY }}
+          update_release_body: true
+          files: |
+            nekoyume-${{ needs.release-please.outputs.version }}.apk

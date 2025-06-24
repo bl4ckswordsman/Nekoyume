@@ -14,6 +14,9 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Wait for APK upload
+        run: sleep 240
+
       - name: VirusTotal Scan
         uses: crazy-max/ghaction-virustotal@v4
         with:

@@ -38,6 +38,11 @@ jobs:
           keyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
       - name: Add version to APK
         run: mv ${{ steps.sign_apk.outputs.signedFile }} ${{ env.APP_NAME }}-release-${{ env.RELEASE_VERSION }}.apk
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: release-apk
+          path: ${{ env.APP_NAME }}-release-${{ env.RELEASE_VERSION }}.apk
       - name: Publish release APK
         uses: "mathieucarbou/marvinpinto-action-automatic-releases@latest"
         with:
@@ -51,6 +56,10 @@ jobs:
     permissions:
       contents: write
     steps:
+      - name: Download APK artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: release-apk
       - name: VirusTotal Scan
         uses: crazy-max/ghaction-virustotal@v4
         with:

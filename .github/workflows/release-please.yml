@@ -23,7 +23,7 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          token: ${{ secrets.NEKOYUME_PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           release-type: simple
 
   build-and-release:
@@ -67,6 +67,14 @@ jobs:
 
       - name: Upload Release Asset
         env:
-          GITHUB_TOKEN: ${{ secrets.NEKOYUME_PAT_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh release upload ${{ needs.release-please.outputs.tag_name }} nekoyume-${{ needs.release-please.outputs.version }}.apk
+
+      - name: VirusTotal Scan
+        uses: crazy-max/ghaction-virustotal@v4
+        with:
+          vt_api_key: ${{ secrets.VT_API_KEY }}
+          update_release_body: true
+          files: |
+            nekoyume-${{ needs.release-please.outputs.version }}.apk

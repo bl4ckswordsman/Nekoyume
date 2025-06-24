@@ -23,7 +23,7 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.NEKOYUME_PAT_TOKEN }}
           release-type: simple
 
   build-and-release:
@@ -67,7 +67,7 @@ jobs:
 
       - name: Upload Release Asset
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.NEKOYUME_PAT_TOKEN }}
         run: |
           gh release upload ${{ needs.release-please.outputs.tag_name }} nekoyume-${{ needs.release-please.outputs.version }}.apk
 

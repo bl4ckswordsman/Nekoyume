@@ -38,42 +38,10 @@ jobs:
           keyPassword: ${{ secrets.SIGNING_KEY_PASSWORD }}
       - name: Add version to APK
         run: mv ${{ steps.sign_apk.outputs.signedFile }} ${{ env.APP_NAME }}-release-${{ env.RELEASE_VERSION }}.apk
-      - name: Upload APK artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-apk
-          path: ${{ env.APP_NAME }}-release-${{ env.RELEASE_VERSION }}.apk
+
       - name: Publish release APK
         uses: "mathieucarbou/marvinpinto-action-automatic-releases@latest"
         with:
-          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          repo_token: "${{ secrets.NEKOYUME_PAT_TOKEN }}"
           prerelease: false
           files: ${{ env.APP_NAME }}-release-${{ env.RELEASE_VERSION }}.apk
-
-  virustotal:
-    needs: release
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    env:
-      APP_NAME: nekoyume
-    steps:
-      - name: Download APK artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: release-apk
-      - name: Debug - List downloaded files
-        run: |
-          echo "Current directory contents:"
-          ls -la
-          echo "Looking for APK files:"
-          find . -name "*.apk" -type f
-          echo "Full path search:"
-          find /home/runner/work -name "*.apk" -type f 2>/dev/null || true
-      - name: VirusTotal Scan
-        uses: crazy-max/ghaction-virustotal@v4
-        with:
-          vt_api_key: ${{ secrets.VT_API_KEY }}
-          update_release_body: true
-          files: |
-            *.apk

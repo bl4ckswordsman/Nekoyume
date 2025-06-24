@@ -1,0 +1,24 @@
+name: "Release Trigger Test"
+
+on:
+  release:
+    types:
+      - published
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test Release Trigger
+        run: |
+          echo "Release trigger is working!"
+          echo "Release tag: ${{ github.event.release.tag_name }}"
+          echo "Release name: ${{ github.event.release.name }}"
+          echo "Release assets count: ${{ github.event.release.assets | length }}"
+          echo "Release draft: ${{ github.event.release.draft }}"
+          echo "Release prerelease: ${{ github.event.release.prerelease }}"
+
+      - name: List Release Assets
+        run: |
+          echo "Release assets:"
+          echo '${{ toJSON(github.event.release.assets) }}' | jq '.[].name' || echo "No assets or jq not available"

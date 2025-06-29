@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0](https://github.com/bl4ckswordsman/Nekoyume/compare/v0.0.1...v0.1.0) (2025-06-29)
+
+
+### Features
+
+* Add app icon (foreground, background and adaptive monochrome) ([28f812d](https://github.com/bl4ckswordsman/Nekoyume/commit/28f812dedab17086f8da8cbea7a34c465d8fb952))
+* Add app icon (foreground, background and adaptive monochrome) ([7b4bd72](https://github.com/bl4ckswordsman/Nekoyume/commit/7b4bd72e886eeb0480f3652b6e8155405764a9e3))
+
 ## [0.0.1](https://github.com/bl4ckswordsman/Nekoyume/compare/v0.0.1...v0.1.0) (2025-06-24)
 
 

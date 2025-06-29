@@ -1,3 +1,5 @@
+![App Icon](/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp)
+
 # Nekoyume 🎵
 
 A modern Android white noise app for relaxation and focus.
